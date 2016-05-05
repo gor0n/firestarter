@@ -1,0 +1,50 @@
+// ==================================================
+// Mixin / Media Queries in ems
+// ==================================================
+
+// Usage :
+
+// div {
+//     background-color: white;
+//     @include mq(479px, 960px) {
+//         background-color: black
+//     }
+// }
+
+// Usage with breakpoints variables
+
+// div {
+//     background-color: white;
+//     @include bp(sm) {
+//         background-color: black
+//     }
+// }
+
+@mixin mq($min: 0, $max: 0) {
+  @if $min > 0 {
+    @if $max > 0 {
+      @media screen and (max-width:  strip-unit($max) / 16 * 1em) and (min-width:  strip-unit($min) / 16 * 1em) { @content; }
+    }
+
+    @else {
+      @media screen and (min-width:  strip-unit($min) / 16 * 1em) { @content; }
+    }
+  }
+
+  @else {
+    @media screen and (max-width:  strip-unit($max) / 16 * 1em) { @content; }
+  }
+}
+
+@mixin bp($breakpoints) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: strip-unit(#{map-get($breakpoints, $breakpoint)}) / 16 * 1em) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+      + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}

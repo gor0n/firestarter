@@ -1,0 +1,191 @@
+// ==================================================
+// Form Component
+// ==================================================
+
+$form-fs : $fs; // font size
+$form-pv : $l-spacing-100; // vertical padding
+$form-ph : $l-spacing-200; // horizontal padding
+$form-bg : $c-white-400; // background color
+
+$form-radio-bg : $c-primary; // radio background color
+$form-radio-c  : $c-white-400; // radio dot color
+
+$form-check-bg : $c-primary; // checkbox background color
+$form-check-c  : $c-white-400; // checkbox mark color
+
+.form {
+  @extend %clearfix;
+
+  &__element {
+    position: relative;
+    margin-bottom: rem($l-spacing-200);
+    padding: rem(0 $l-spacing-200);
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="tel"],
+    textarea,
+    select {
+      width: 100%;
+    }
+  }
+}
+
+// ==================================================
+// Form Component / Input
+// ==================================================
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+textarea {
+  padding: rem($form-pv $form-ph);
+  border: 1px solid transparent;
+  border-radius: em(4px);
+  font-size: rem($form-fs);
+  background-color: $form-bg;
+  appearance: none;
+  outline: 0;
+}
+
+// ==================================================
+// Form Component / Select
+// ==================================================
+
+select {
+  padding: em($form-pv $form-ph);
+  border: 1px solid transparent;
+  border-radius: rem(4px);
+  background-color: $form-bg;
+  appearance: none;
+  outline: 0;
+  cursor: pointer;
+
+  &::-ms-expand {
+    display: none;
+  }
+
+  &::-ms-value {
+		color: currentColor;
+	}
+}
+
+.form__select {
+  font-size: rem($form-fs);
+
+  select {
+    padding-right: em($form-ph*2);
+
+    &:focus + .icon {
+      @extend .icon--arrow.is-active;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    @extend %centerY;
+    right: 2.5em;
+    font-size: 0.875em;
+    pointer-events: none;
+
+    span,
+    &:before,
+    &:after {
+      background-color: $c-primary;
+    }
+  }
+
+  &.form__element {
+    .icon {
+      right: em($l-spacing-400);
+    }
+  }
+}
+
+// ==================================================
+// Form Component / Checkboxes and radios
+// ==================================================
+
+input[type=checkbox],
+input[type=radio] {
+  display: none;
+
+  & + label {
+    position: relative;
+    padding-left: 1.5em;
+    font-size: rem($form-fs);
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+    }
+
+    &:after {
+      transition: transform $t-fast;
+    }
+  }
+}
+
+input[type=checkbox] {
+  & + label {
+    &:before {
+      top: .125em;
+      left: 0;
+      width: 1em;
+      height: 1em;
+      border: em(2px) solid $form-radio-bg;
+      border-radius: em(2px);
+      background-color: $form-radio-bg;
+    }
+
+    &:after {
+      top: .25em;
+      left: .375em;
+      width: .3em;
+      height: .625em;
+      border-right: em(2px) solid $form-radio-c;
+      border-bottom: em(2px) solid $form-radio-c;
+      transform: rotate(25deg) scale(0);
+    }
+  }
+
+  &:checked + label {
+    &:after {
+      transform: rotate(40deg) scale(1);
+    }
+  }
+}
+
+input[type=radio] {
+  & + label {
+    &:before {
+      top: .125em;
+      left: 0;
+      width: 1em;
+      height: 1em;
+      border: em(2px) solid $form-check-bg;
+      border-radius: 100%;
+      background-color: $form-check-bg;
+    }
+
+    &:after {
+      top: .625em;
+      left: .5em;
+      width: .375em;
+      height: .375em;
+      background-color: $form-check-c;
+      border-radius: 100%;
+      transform: translate3d(-50%, -50%, 0) scale(0);
+    }
+}
+
+  &:checked + label {
+    &:after {
+      transform: translate3d(-50%, -50%, 0) scale(1);
+    }
+  }
+}

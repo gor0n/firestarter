@@ -1,0 +1,16 @@
+// ==================================================
+// Header Layout
+// ==================================================
+
+.header {
+  padding: em($l-spacing-400 $l-spacing-200);
+  text-align: center;
+
+  &__title {
+    padding-bottom: em($l-spacing-200, $h1-fs);
+    position: relative;
+    display: inline-block;
+    @extend .h1;
+    color: $c-primary;
+  }
+}

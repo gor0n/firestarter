@@ -1,0 +1,84 @@
+// ==================================================
+// Typography Headings
+// ==================================================
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  @include smooth(on);
+  font-family: $ff-primary;
+  font-weight: 300;
+  color: $c-text;
+}
+
+.h1 {
+  font-size: rem($h1-fs);
+}
+
+.h2 {
+  font-size: rem($h2-fs);
+}
+
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-size: rem($h3-fs);
+}
+
+// ==================================================
+// Typography Component
+// ==================================================
+
+.typography {
+  h2 {
+    @extend .h2;
+    margin-bottom: rem($l-spacing-400);
+  }
+
+  h3 {
+    @extend .h3;
+    margin-bottom: rem($l-spacing-200);
+  }
+
+  h4 {
+    @extend .h4;
+    margin-bottom: rem($l-spacing-200);
+  }
+
+  h5 {
+    @extend .h5;
+    margin-bottom: rem($l-spacing-200);
+  }
+
+  h6 {
+    @extend .h6;
+    margin-bottom: rem($l-spacing-200);
+  }
+
+  p {
+    margin-bottom: rem($l-spacing-200);
+    font-size: rem($fs);
+  }
+
+  ul,
+  ol {
+    @extend .list;
+    font-size: rem($fs);
+  }
+
+  ul {
+    @extend .list--bullet;
+  }
+
+  ol {
+    @extend .list--ordered;
+  }
+
+  a {
+    @extend .link;
+  }
+}

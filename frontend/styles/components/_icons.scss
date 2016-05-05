@@ -1,0 +1,44 @@
+// ==================================================
+// Icon Component
+// ==================================================
+
+$icn-bg     : $c-white-400;
+$icn-weight : 2px;
+$icn-radius : 2px;
+
+.icon {
+  position: relative;
+  cursor: pointer;
+
+  &__group {
+    font-size: rem($fs);
+  }
+
+  &--hamburger {
+    @include icon('hamburger', 'default', $icn-bg, $icn-weight, $icn-radius);
+  }
+
+  &--hamburger-cross {
+    @include icon('hamburger', 'cross', $icn-bg, $icn-weight, $icn-radius);
+  }
+
+  &--plus {
+    @include icon('plus', 'default', $icn-bg, $icn-weight, $icn-radius);
+  }
+
+  &--plus-cross {
+    @include icon('plus', 'cross', $icn-bg, $icn-weight, $icn-radius);
+  }
+
+  &--arrow {
+    @include icon('arrow', 'default', $icn-bg, $icn-weight, $icn-radius);
+  }
+
+  &--arrow-cross {
+    @include icon('arrow', 'cross', $icn-bg, $icn-weight, $icn-radius);
+  }
+
+  &--search {
+    @include icon('search', 'default', $icn-bg, $icn-weight, $icn-radius);
+  }
+}

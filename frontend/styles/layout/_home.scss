@@ -1,0 +1,28 @@
+// ==================================================
+// Home Layout
+// ==================================================
+
+.l-home {
+  text-align: center;
+
+  .h1 {
+    position: absolute;
+    @extend %centerXY;
+    width: 100%;
+    color: $c-gray-400;
+
+    small {
+        display: block;
+        font-size: 40%;
+    }
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    @extend .typography;
+  }
+}

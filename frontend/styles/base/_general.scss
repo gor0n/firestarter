@@ -1,0 +1,34 @@
+// ==================================================
+// General
+// ==================================================
+
+:root {
+  text-rendering: optimizeLegibility;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $ff-primary;
+  font-size: $fs;
+  line-height: $lh;
+  color: $c-text;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+::-moz-selection {
+  background-color: $c-selection;
+  color: $c-white-400;
+}
+
+::selection {
+  background-color: $c-selection;
+  color: $c-white-400;
+}

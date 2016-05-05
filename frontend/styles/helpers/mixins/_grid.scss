@@ -1,0 +1,308 @@
+// ==========================================================================
+// Grid Custom System
+// ==========================================================================
+
+// !! Requires map-variables $breakpoints
+//
+// @example scss - Usage
+//     @include grid(
+//          attribute       (default: 'grid')
+//          columns         (default: 12)
+//          gutter-width    (default: 0)
+//          max-width       (default: 100%)
+//      );
+
+@mixin grid(
+$attribute : 'grid',
+$attribute-columns : 12,
+$gutter : 0,
+$max-width : false,
+$flexbox: true
+){
+
+    [#{$attribute}=""] {
+
+        & {
+            width: 100%;
+            margin: 0 auto;
+
+            @if($max-width == false){
+                $max-width : calc(100% - #{$gutter});
+            }
+            @else {
+                max-width: $max-width;
+            }
+            @if($gutter != 0){
+                padding-left: $gutter/2;
+                padding-right: $gutter/2;
+            }
+        }
+
+        [#{$attribute}~=row] {
+
+            @if($flexbox) {
+                display: flex;
+                flex: 0 1 auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                &[#{$attribute}~=reverse] {
+                    flex-direction: row-reverse;
+                }
+            }
+            @else {
+                display: block;
+                margin-left: -$gutter/2;
+                margin-right: -$gutter/2;
+                position: relative;
+
+                &:after, &:before {
+                    content: "";
+                    display: table;
+                    clear: both;
+                }
+            }
+
+            [#{$attribute}*="-"] {
+                display: block;
+
+                @if($flexbox) {
+                    width: 100%;
+                    flex: 0 0 auto;
+                    margin: 0;
+
+                    &[#{$attribute}~=reverse] {
+                        flex-direction: column-reverse;
+                    }
+                }
+                @else {
+                    float: left;
+                }
+
+                @if($gutter != 0){
+                    padding-left: $gutter/2;
+                    padding-right: $gutter/2;
+                }
+            }
+        }
+    }
+
+    [block-#{$attribute}]:not([block-#{$attribute}=block]) {
+
+        margin-left:-$gutter/2;
+        margin-right:-$gutter/2;
+        position: relative;
+
+        @if ($flexbox) {
+            display: flex;
+            flex: 0 1 auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            &[row~=reverse] {
+                flex-direction: row-reverse;
+            }
+        }
+        @else {
+            display: block;
+
+            &:after, &:before {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        }
+    }
+
+    [block-#{$attribute}=block] {
+        @if ($flexbox) {
+            flex: 1 1 0;
+        }
+        @else {
+            float: left;
+
+            @for $i from 1 through $attribute-columns {
+                &:nth-of-type(#{$i}n+1) {
+                    clear: both;
+                }
+            }
+            &:nth-of-type(1n) {
+                clear: none;
+            }
+        }
+
+        @if($gutter != 0){
+            padding-left: $gutter/2;
+            padding-right: $gutter/2;
+            padding-bottom: $gutter;
+        }
+    }
+
+    @each $bp, $w in $breakpoints {
+        @media only screen and (min-width: #{$w}) {
+            @for $i from 1 through $attribute-columns {
+
+                [block-#{$attribute}~="#{$bp}-#{$i}"] {
+
+                    [block-#{$attribute}=block] {
+                        @if ($flexbox) {
+                            flex-basis: 100% / $i;
+                            max-width: 100% / $i;
+                        }
+                        @else {
+                            width: 100% / $i;
+                        }
+                    }
+                }
+
+                [#{$attribute}~="#{$bp}-#{$i}"] {
+                    @if ($flexbox) {
+                        flex-basis: 100% / $attribute-columns * $i;
+                        max-width: 100% / $attribute-columns * $i;
+                    }
+                    @else {
+                        width: 100% / $g-columns * $i;
+                    }
+                }
+                @if (not $flexbox) {
+                    [#{$attribute}~="#{$bp}-offset-#{$i}"] {
+                        margin-left: 100% / $g-columns * $i;
+                    }
+                    [#{$attribute}~="#{$bp}-pull-#{$i}"] {
+                        position: relative;
+                        right: percentage(($i / $g-columns));
+                    }
+                    [#{$attribute}~="#{$bp}-push-#{$i}"] {
+                        position: relative;
+                        left: percentage(($i / $g-columns));
+                    }
+                }
+            }
+        }
+
+        @if ($flexbox) {
+            &[#{$attribute}~="#{$bp}-auto"] {
+                flex-grow: 1;
+                flex-basis: 0;
+                max-width: 100%;
+            }
+            &[#{$attribute}~="start-#{$bp}"] {
+                justify-content: flex-start;
+                text-align: start;
+            }
+            &[#{$attribute}~="end-#{$bp}"] {
+                justify-content: flex-end;
+                text-align: end;
+            }
+            &[#{$attribute}~="center-#{$bp}"] {
+                justify-content: center;
+                text-align: center;
+            }
+            &[#{$attribute}~="between-#{$bp}"] {
+                justify-content: space-between;
+            }
+            &[#{$attribute}~="around-#{$bp}"] {
+                justify-content: space-around;
+            }
+            &[#{$attribute}~="top-#{$bp}"] {
+                align-items: flex-start;
+            }
+            &[#{$attribute}~="middle-#{$bp}"] {
+                align-items: center;
+            }
+            &[#{$attribute}~="bottom-#{$bp}"] {
+                align-items: flex-end;
+            }
+            &[#{$attribute}~="first-#{$bp}"] {
+                order: -1;
+            }
+            &[#{$attribute}~="last-#{$bp}"] {
+                order: 1;
+            }
+        }
+    }
+}
+
+// ==========================================================================
+// Mixins helpers
+// ==========================================================================
+
+// Usage :
+
+// .article {
+//   @include col(sm, 4);
+// }
+
+@mixin container($attribute: 'grid') {
+  @extend [#{$attribute}=""];
+}
+
+@mixin row($attribute: 'grid') {
+  @extend [#{$attribute}~=row];
+}
+
+@mixin col($bp, $col, $attribute: 'grid') {
+  @extend [#{$attribute}*="-"];
+  @extend [#{$attribute}~="#{$bp}-#{$col}"];
+}
+
+@mixin block-grid($bp, $col, $attribute: 'grid') {
+  @extend [block-#{$attribute}]:not([block-#{$attribute}=block]);
+  @extend [block-#{$attribute}~="#{$bp}-#{$col}"];
+}
+
+@mixin block($attribute: 'grid') {
+  @extend [block-#{$attribute}=block];
+}
+
+@mixin flex-center($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="center-#{$bp}"];
+}
+
+@mixin flex-start($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="start-#{$bp}"];
+}
+
+@mixin flex-end($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="end-#{$bp}"];
+}
+
+@mixin flex-between($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="between-#{$bp}"];
+}
+
+@mixin flex-around($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="around-#{$bp}"];
+}
+
+@mixin flex-top($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="top-#{$bp}"];
+}
+
+@mixin flex-middle($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="middle-#{$bp}"];
+}
+
+@mixin flex-bottom($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="bottom-#{$bp}"];
+}
+
+@mixin flex-first($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="first-#{$bp}"];
+}
+
+@mixin flex-last($bp, $attribute: 'grid') {
+  @extend [#{$attribute}~="last-#{$bp}"];
+}
+
+@mixin offset($bp, $col, $attribute: 'grid') {
+  @extend [#{$attribute}~="#{$bp}-offset-#{$col}"];
+}
+
+@mixin push($bp, $col, $attribute: 'grid') {
+  @extend [#{$attribute}~="#{$bp}-push-#{$col}"];
+}
+
+@mixin pull($bp, $col, $attribute: 'grid') {
+  @extend [#{$attribute}~="#{$bp}-pull-#{$col}"];
+}

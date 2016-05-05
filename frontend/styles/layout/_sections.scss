@@ -1,0 +1,29 @@
+// ==================================================
+// Section Layout
+// ==================================================
+
+.section {
+  max-width: $l-container;
+  margin: 0 auto;
+  padding: em($l-spacing-400) em($l-spacing-200);
+
+  &--fluid {
+    max-width: 100%;
+    padding: em($l-spacing-400) em($l-spacing-200);
+  }
+
+  &__title {
+    @extend .h2;
+    margin-bottom: em($l-spacing-400, $h2-fs);
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  &__subtitle {
+    @extend .h3;
+    margin-top: em($l-spacing-200, $h3-fs);
+    margin-bottom: em($l-spacing-200, $h3-fs);
+  }
+}

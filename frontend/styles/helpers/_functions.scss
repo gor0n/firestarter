@@ -1,0 +1,60 @@
+// ==================================================
+// Function / Convert pixels to ems
+// ==================================================
+
+// Usage :
+
+// div {
+//     padding: em(10px 20px);
+//     font-size: em(12px);
+//     font-size: em(12px, 24px);
+// }
+
+@function em($values, $context: $fs) {
+  $em: ();
+
+  @each $value in $values {
+    @if $value == 0 or $value == auto {
+      $em: append($em, $value);
+    }
+    @else {
+      $em: append($em, ( ( $value / $context ) * 1em ));
+    }
+  }
+
+  @return $em;
+}
+
+// ==================================================
+// Function / Convert pixels to rems
+// ==================================================
+
+// Usage :
+
+// div {
+//     padding: rem(10px 20px);
+//     font-size: rem(12px);
+// }
+
+@function rem($values) {
+  $rem: ();
+
+  @each $value in $values {
+    @if $value == 0 or $value == auto {
+      $rem: append($rem, $value);
+    }
+    @else {
+      $rem: append($rem, ( ( $value / $fs ) * 1rem ));
+    }
+  }
+
+  @return $rem;
+}
+
+// ==================================================
+// Function / Strip unit from value
+// ==================================================
+
+@function strip-unit($val) {
+  @return ($val / ($val * 0 + 1));
+}

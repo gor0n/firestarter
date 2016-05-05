@@ -1,0 +1,59 @@
+// ==================================================
+// List Component
+// ==================================================
+
+.list {
+  margin-bottom: em($l-spacing-200);
+  text-align: left;
+
+  & > li {
+    position: relative;
+    margin-bottom: em($l-spacing-100);
+  }
+
+  ul,
+  ol {
+    margin-top: em($l-spacing-100);
+    margin-bottom: 0;
+  }
+
+  &--bullet {
+    & > li {
+      padding-left: em($l-spacing-200);
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: rem(10px);
+        left: rem(2px);
+        width: rem(6px);
+        height: rem(6px);
+        border-radius: 100%;
+        font-family: Helvetica, sans-serif;
+        font-size: rem(32px);
+        background-color: $c-primary;
+      }
+    }
+  }
+
+  &--ordered {
+  	counter-reset: item;
+
+    & > li {
+      padding-left: em($l-spacing-200);
+
+      &:before {
+        content: counters(item, ".")".";
+        counter-increment: item;
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $c-primary;
+      }
+
+      ol {
+        counter-reset: item;
+      }
+    }
+  }
+}

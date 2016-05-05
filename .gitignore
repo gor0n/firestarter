@@ -1,0 +1,22 @@
+# Build
+# ------------------------------------------
+node_modules/
+npm-debug.log
+frontend/favicon/favicon.json
+public/favicons/*
+public/css/*
+public/js/*
+
+# OS/IDE Generated
+# ------------------------------------------
+# MacOSX
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Netbeans
+nbproject/
+
+# Jetbrains
+.idea/
