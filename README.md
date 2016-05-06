@@ -20,7 +20,7 @@ A starter kit for front end development including a build system and a [style gu
 #### Scripts ####
 - [Browserify](http://browserify.org/) as JS dependencies manager
 - [ESLint](http://eslint.org/) as JS linter
-- [Babel](https://babeljs.io/) to use next generation javaScript, today
+- [Babel](https://babeljs.io/) to use next generation javascript, today
 
 #### Others ####
 - [Imagemin](https://github.com/imagemin/imagemin) to optimize images
