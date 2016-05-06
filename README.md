@@ -1,3 +1,5 @@
+![Firestarter logo](https://raw.githubusercontent.com/gor0n/firestarter/master/frontend/favicon/favicon.png)
+
 # **Firestarter** #
 
 A starter kit for front end development including a build system and a [style guide](http://base.iconpaper.org/guide.html) to quickly craft components.
