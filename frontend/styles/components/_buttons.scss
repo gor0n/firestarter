@@ -14,12 +14,9 @@
   transition: all $t-fast;
   cursor: pointer;
 
-  & + & {
-    margin-left: rem($l-spacing-200);
-  }
-
   &__group {
     .btn {
+      margin-right: rem($l-spacing-200);
       margin-bottom: rem($l-spacing-100);
     }
   }
