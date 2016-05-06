@@ -36,15 +36,15 @@
   }
 }
 
-@mixin bp($breakpoints) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    @media screen and (min-width: strip-unit(#{map-get($breakpoints, $breakpoint)}) / 16 * 1em) {
+@mixin bp($bp) {
+  @if map-has-key($l-breakpoints, $bp) {
+    @media screen and (min-width: strip-unit(map-get($l-breakpoints, $bp)) / 16 * 1em) {
       @content;
     }
   }
 
   @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
-      + "Please make sure it is defined in `$breakpoints` map.";
+    @warn "Unfortunately, no value could be retrieved from `#{$bp}`. "
+      + "Please make sure it is defined in `$l-breakpoints` map.";
   }
 }

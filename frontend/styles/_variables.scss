@@ -42,13 +42,13 @@ $l-spacing-100 : 10px !default;
 $l-spacing     : $l-spacing-400 !default;
 
 $l-breakpoints : (
-    root: 20em, // 320px
-    xs:   40em, // 640px
-    sm:   48em, // 768px
-    smd:  60em, // 960px
-    md:   64em, // 1024px
-    lg:   80em, // 1280px
-    xl:   96em  // 1536px
+    root: 320px,
+    xxs:  640px,
+    xs:   768px,
+    sm:   960px,
+    md:   1024px,
+    lg:   1280px,
+    xl:   1536px
 );
 
 // ==================================================
