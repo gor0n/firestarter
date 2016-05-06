@@ -23,6 +23,7 @@ A starter kit for front end development including a build system and a [style gu
 #### Others ####
 - [Imagemin](https://github.com/imagemin/imagemin) to optimize images
 - [Realfavicons](http://realfavicongenerator.net/) to generate favicons
+- [Editorconfig](http://editorconfig.org/) to maintain consistent coding styles
 
 ## Getting started ##
 
