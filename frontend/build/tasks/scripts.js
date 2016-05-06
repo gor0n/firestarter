@@ -94,7 +94,7 @@ gulp.task('scripts:lint', function() {
 
         if (results.errorCount > 0 || results.warningCount > 0) {
           project.hasError = true;
-         }
+        }
 
         results.forEach(function(res) {
           if ( res.errorCount > 0 ||  res.warningCount > 0 ) {
