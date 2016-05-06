@@ -73,19 +73,19 @@ This build system is including support for `sourcemaps`, `notifications` and `li
 
 Task Name     | Description
 ------------- | -----------------------------------------------------
-`default`     | Default task, used for dev (will run images, styles, scripts and clean:maps if `--prod` flag is used)
+`default`     | Run images, styles, scripts and clean:maps if `--prod` flag is used
 `watch`       | Watch CSS and JS files
 `live`        | Watch files and enable livereload (you need to have [livereload browser extension](http://livereload.com/extensions/))
 
 #### Individual Tasks
 
-Task Name      | Description
--------------- | ----------------------------------------------------
-`images      ` | Copy and optimize images
-`styles`       | Compile SASS and run autoprefixer (and cssnano if `--prod` flag is used)
-`scripts`      | Concatene and lint JS
-`favicons`     | Generate favicons for all devices
-`clean:maps`   | Clean sourcemaps, used only with `--prod` flag
+Task Name     | Description
+------------- | ----------------------------------------------------
+`images`      | Copy and optimize images
+`styles`      | Compile SASS and run autoprefixer (and cssnano if `--prod` flag is used)
+`scripts`     | Concatene and lint JS
+`favicons`    | Generate favicons for all devices
+`clean:maps`  | Clean sourcemaps, used only with `--prod` flag
 
 ## SASS helpers ##
 
