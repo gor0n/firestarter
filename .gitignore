@@ -3,10 +3,11 @@
 node_modules/
 npm-debug.log
 frontend/favicon/favicon.json
-public/favicons/*
-public/css/*
-public/js/*
-public/img/*
+public/favicons/
+public/fonts/
+public/css/
+public/js/
+public/img/
 
 # OS/IDE Generated
 # ------------------------------------------

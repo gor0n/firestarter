@@ -19,6 +19,7 @@ var paths         = require(build + 'configs/paths'),
     images        = require(build + 'configs/images'),
     styles        = require(build + 'configs/styles'),
     scripts       = require(build + 'configs/scripts')(),
+    fonts         = require(build + 'configs/fonts'),
     notifications = require(build + 'configs/notifications');
 
 // ==================================================
@@ -28,6 +29,7 @@ var paths         = require(build + 'configs/paths'),
 require(build + 'tasks/images');
 require(build + 'tasks/styles');
 require(build + 'tasks/scripts');
+require(build + 'tasks/fonts');
 require(build + 'tasks/favicons');
 require(build + 'tasks/clean');
 
@@ -40,6 +42,7 @@ var bundleTask = [];
 images.enabled ? bundleTask.push('images') : '';
 styles.enabled ? bundleTask.push('styles') : '';
 scripts.enabled ? bundleTask.push('scripts') : '';
+fonts.enabled ? bundleTask.push('fonts') : '';
 project.isProd ? bundleTask.push('clean:maps') : '';
 
 gulp.task('default', bundleTask, function() {
