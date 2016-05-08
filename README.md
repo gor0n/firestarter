@@ -45,6 +45,7 @@ It will install nodejs dependencies then run `gulp` to generate files in public 
 |  |  |-- tasks/
 |  |-- favicon/
 |  |  |-- favicon.png
+|  |-- fonts/
 |  |-- img/
 |  |-- scss/
 |  |  |-- base/
@@ -57,6 +58,7 @@ It will install nodejs dependencies then run `gulp` to generate files in public 
 |  |  |-- main.js
 |-- public/
 |  |-- favicons/ (generated favicons)
+|  |-- fonts/ (copied fonts)
 |  |-- img/ (optimized images)
 |  |-- css/
 |  |  |-- styles.css
@@ -76,7 +78,7 @@ This build system is including support for `sourcemaps`, `notifications` and `li
 
 Task Name     | Description
 ------------- | -----------------------------------------------------
-`default`     | Run images, styles, scripts and clean:maps if `--prod` flag is used
+`default`     | Run images, styles, scripts, fonts and clean:maps if `--prod` flag is used
 `watch`       | Watch CSS and JS files
 `live`        | Watch files and enable livereload (you need to have [livereload browser extension](http://livereload.com/extensions/))
 
@@ -88,6 +90,7 @@ Task Name     | Description
 `styles`      | Compile SASS and run autoprefixer (and cssnano if `--prod` flag is used)
 `scripts`     | Concatene and lint JS
 `favicons`    | Generate favicons for all devices
+`fonts`       | Copy fonts in public directory
 `clean:maps`  | Clean sourcemaps, used only with `--prod` flag
 
 ## SASS helpers ##
