@@ -1,33 +1,33 @@
 ![Firestarter logo](https://raw.githubusercontent.com/gor0n/firestarter/master/frontend/favicon/favicon.png)
 
-# **Firestarter** #
+# **Firestarter**
 
 A starter kit for front end development including a build system and a [style guide](http://base.iconpaper.org/guide.html) to quickly craft components.
 
-## Technology stack ##
+## Technology stack
 
 - [Gulp](http://gulpjs.com/) as task runner
 
-#### Styles ####
+#### Styles
 - [SASS](http://sass-lang.com/) as CSS preprocessor
 - [PostCSS](http://postcss.org/) plugins
     - [Autoprefixer](https://github.com/postcss/autoprefixer) takes care of vendor prefixes
     - [CSSnano](http://cssnano.co/) to optimize and minify CSS
     - [Responsive Type](https://github.com/seaneking/postcss-responsive-type) for automagical responsive typography
-    - [Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) enabling stuffs like `li:at-most(4)` or `:between(4, 6)`
+    - [Quantity Queries](https://github.com/pascalduez/postcss-quantity-queries) enabling stuffs like `:at-most(4)` or `:between(4, 6)`
 - [BEMIT](http://csswizardry.com/2015/08/bemit-taking-the-bem-naming-convention-a-step-further/) as CSS naming convention
 
-#### Scripts ####
+#### Scripts
 - [Browserify](http://browserify.org/) as JS dependencies manager
 - [ESLint](http://eslint.org/) as JS linter
 - [Babel](https://babeljs.io/) to use next generation javascript, today
 
-#### Others ####
+#### Others
 - [Imagemin](https://github.com/imagemin/imagemin) to optimize images
 - [Realfavicons](http://realfavicongenerator.net/) to generate favicons
 - [Editorconfig](http://editorconfig.org/) to maintain consistent coding styles
 
-## Getting started ##
+## Getting started
 
 You need to have `node` and `gulp` installed. If you have them, you just need to run this task.
 ```
@@ -35,7 +35,7 @@ You need to have `node` and `gulp` installed. If you have them, you just need to
 ```
 It will install nodejs dependencies then run `gulp` to generate files in public directory.
 
-## Structure ##
+## Structure
 
 ```
 |
@@ -66,7 +66,7 @@ It will install nodejs dependencies then run `gulp` to generate files in public 
 |
 ```
 
-## Build system ##
+## Build system
 
 Gulp configs and individual tasks are located in build folder. All tasks can be disabled via the config files.
 
@@ -115,7 +115,7 @@ Name          | Description
 
 Some SASS placeholders are also provided: `clearfix` `centerx` `centery` `centerxy` and `hide-text`.
 
-## CSS components ##
+## CSS components
 
 The starter kit includes a [style guide](http://base.iconpaper.org/guide.html) displaying all CSS components.
 
@@ -135,7 +135,7 @@ Providing styling for form elements with custom select boxes, radio buttons and 
 
 Providing basic styling for buttons with `primary` `secondary` and `disabled` variations.
 
-## Copyright ##
+## Copyright
 
 The MIT License (MIT) Copyright © 2016 Vivian Verswyvel
 
