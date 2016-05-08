@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Load modules
+// Load Modules
 // ==================================================
 
 var gulp     = require('gulp'),
@@ -9,7 +9,7 @@ var gulp     = require('gulp'),
     changed  = require('gulp-changed');
 
 // ==================================================
-// Load configurations
+// Load Configurations
 // ==================================================
 
 var paths  = require('../configs/paths'),

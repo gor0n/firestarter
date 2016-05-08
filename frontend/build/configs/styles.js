@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Styles configuration
+// Styles Configuration
 // ==================================================
 
 module.exports = {

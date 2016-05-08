@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Paths configuration
+// Paths Configuration
 // ==================================================
 
 module.exports = {

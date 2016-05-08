@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Images configuration
+// Images Configuration
 // ==================================================
 
 module.exports = {

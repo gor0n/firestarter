@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Load modules
+// Load Modules
 // ==================================================
 
 var gulp            = require('gulp'),
@@ -17,7 +17,7 @@ var gulp            = require('gulp'),
     notify          = require('gulp-notify');
 
 // ==================================================
-// Load configurations
+// Load Configurations
 // ==================================================
 
 var paths         = require('../configs/paths'),
@@ -46,6 +46,7 @@ gulp.task('styles', function() {
     .on('error', !project.isProd && notifications.enabled ? notify.onError({
       sound: notifications.mute ? false : notifications.soundEr,
       message: function(file) {
+        project.hasError = true;
         return file.file.split("/").pop() + ' failed SASS compilation';
       }
     }) : function() { gutil.noop(); })

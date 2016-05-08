@@ -1,14 +1,14 @@
 'use strict';
 
 // ==================================================
-// Load modules
+// Load Modules
 // ==================================================
 
 var gulp   = require('gulp'),
     notify = require('gulp-notify');
 
 // ==================================================
-// Load configurations
+// Load Configurations
 // ==================================================
 
 var paths         = require('../configs/paths'),

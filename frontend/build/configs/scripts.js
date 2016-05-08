@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Scripts configuration
+// Scripts Configuration
 // ==================================================
 
 module.exports = () => {

@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Notifications configuration
+// Notifications Configuration
 // ==================================================
 
 module.exports = {

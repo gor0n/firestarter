@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Project configuration
+// Project Configuration
 // ==================================================
 
 module.exports = () => {

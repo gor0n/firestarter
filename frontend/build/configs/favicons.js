@@ -1,7 +1,7 @@
 'use strict';
 
 // ==================================================
-// Favicons configuration
+// Favicons Configuration
 // ==================================================
 
 module.exports = () => {
