@@ -9,7 +9,7 @@
 
 body {
   font-family: $ff-primary;
-  font-size: $fs;
+  font-size: (strip-unit($fs) / 16) * 100%; // convert base font-size in % relative to browser font-size (default 16)
   line-height: $lh;
   color: $c-text;
 }
