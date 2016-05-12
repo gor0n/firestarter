@@ -5,6 +5,6 @@
 // ==================================================
 
 module.exports = {
-    enabled: true,
-    extensions: 'eot,woff,ttf,woff2'
+  enabled: true,
+  extensions: 'eot,woff,ttf,woff2'
 };

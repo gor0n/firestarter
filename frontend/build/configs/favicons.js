@@ -7,7 +7,7 @@
 module.exports = () => {
   var paths   = require('../configs/paths');
 
-  var favicons = {
+  var settings = {
     enabled : false,
     picture : paths.src.base + 'favicon/favicon.png',
     data    : paths.src.base + 'favicon/favicon.json',
@@ -42,5 +42,5 @@ module.exports = () => {
     }
   };
 
-  return favicons;
+  return settings;
 };

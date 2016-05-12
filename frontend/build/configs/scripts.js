@@ -7,7 +7,7 @@
 module.exports = () => {
   var paths = require('../configs/paths');
 
-  var scripts = {
+  var settings = {
     enabled: true,
     maps: true,
     lint: true,
@@ -26,5 +26,5 @@ module.exports = () => {
     }
   };
 
-  return scripts;
+  return settings;
 };

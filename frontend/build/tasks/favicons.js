@@ -14,13 +14,13 @@ var gulp        = require('gulp'),
 var paths         = require('../configs/paths'),
     project       = require('../configs/project')(),
     favicons      = require('../configs/favicons')(),
-    notifications = require('../configs/paths');
+    notifications = require('../configs/notifications');
 
 // ==================================================
 // Tasks
 // ==================================================
 
-gulp.task('favicons', function(done) {
+gulp.task('favicons', function() {
   try {
     fs.accessSync(paths.src.base + 'favicon/favicon.png', fs.F_OK);
   } catch(e) {
@@ -42,9 +42,9 @@ gulp.task('favicons', function(done) {
     iconsPath: '/',
     design: favicons.design,
     settings: {
-		scalingAlgorithm: 'Mitchell',
-		errorOnImageTooSmall: true
-	},
+		  scalingAlgorithm: 'Mitchell',
+		  errorOnImageTooSmall: true
+	  },
     markupFile: favicons.data
   });
 });
